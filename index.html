@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving Cat</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #f0f0f0; /* Off-white background color */
+    }
+
+    #cat {
+      position: absolute;
+      font-size: 2em;
+      transition: transform 0.5s; /* Transition for cat movement */
+      cursor: pointer;
+      color: #333; /* Dark text color for better visibility on light background */
+    }
+  </style>
+</head>
+<body>
+
+<div id="cat">&#128569;</div>
+
+<script>
+  const cat = document.getElementById('cat');
+
+  cat.addEventListener('mouseover', () => {
+    const maxX = window.innerWidth - cat.clientWidth;
+    const maxY = window.innerHeight - cat.clientHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    // Move the cat
+    cat.style.transform = `translate(${randomX}px, ${randomY}px)`;
+  });
+</script>
+
+</body>
+</html>
